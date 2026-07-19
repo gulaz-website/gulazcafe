@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.querySelector(".contact-form form");
 
-    if (form) {
+    if (form && form.id !== "contactForm") {
 
         form.addEventListener("submit", function (e) {
 
@@ -113,6 +113,28 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             form.reset();
+
+        });
+
+    }
+
+    /* ===========================
+       Homepage Video Interaction
+    =========================== */
+
+    const aboutVideo = document.getElementById("about-video");
+
+    if (aboutVideo) {
+
+        aboutVideo.addEventListener("mouseenter", () => {
+
+            aboutVideo.play().catch(() => {});
+
+        });
+
+        aboutVideo.addEventListener("mouseleave", () => {
+
+            aboutVideo.pause();
 
         });
 

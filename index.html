@@ -100,7 +100,7 @@
 
     <div class="hero-image">
 
-        <img src="743763524_1904500437592232_1431150313071317612_n.jpg" alt="Gulaz Business Centre">
+        <img src="749259164_1909603117081964_3973808891475227869_n.jpg" alt="Gulaz Business Centre">
 
     </div>
 
@@ -208,7 +208,7 @@ and document solutions.
 
 <div>
 
-<img src="480937546_1454011879307759_4334968036154810055_n.jpg" alt="Printing">
+<video id="about-video" src="WhatsApp Video 2026-07-19 at 11.41.50 AM.mp4" preload="auto" playsinline></video>
 </div>
 
 <div>
@@ -290,7 +290,7 @@ Learn More
             </div>
 
             <div class="service-card">
-                <i class="fa-solid fa-scanner"></i>
+                <i class="fa-solid fa-file-arrow-up"></i>
                 <h3>Scanning</h3>
                 <p>Scan your documents and save them as PDF or image files.</p>
             </div>
@@ -345,6 +345,7 @@ Learn More
         <div class="gallery-grid">
 
             <img src="740059905_1899553688086907_4470969494744061516_n.jpg" alt="Printing">
+            <img src="749259164_1909603117081964_3973808891475227869_n.jpg" alt="Printing">
             <img src="743763524_1904500437592232_1431150313071317612_n.jpg" alt="printing">
             <img src="487979044_2080437565802549_3210854676822900942_n.jpg" alt="Internet Café">
             <img src="487492866_2080437309135908_1332690183477564057_n.jpg" alt="Photocopying">
@@ -358,7 +359,7 @@ Learn More
 
 </section>
 
-<
+
 <!--================ TESTIMONIALS ================-->
 
 <section class="testimonials">
@@ -455,8 +456,48 @@ Learn More
 
             </div>
 
-           
-                
+            <!-- Contact Form -->
+
+            <div class="contact-form">
+
+                <form id="contactForm">
+
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Your Name"
+                        required>
+
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Email Address"
+                        required>
+
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Phone Number">
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="Write your message..."
+                        required></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn">
+
+                        Send Message
+
+                    </button>
+
+                </form>
 
             </div>
 
@@ -572,6 +613,34 @@ Learn More
 <!--================ JAVASCRIPT ================-->
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const phone = form.querySelector('input[name="phone"]').value.trim();
+        const message = form.querySelector('textarea[name="message"]').value.trim();
+
+        if (!name || !email || !message) {
+            alert("Please fill in your name, email, and message before sending.");
+            return;
+        }
+
+        const whatsappNumber = "+260978880446";
+        const text = `Hello, I have a new message from your website.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\nMessage:\n${message}`;
+        const url = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(text)}`;
+
+        window.open(url, "_blank");
+        form.reset();
+    });
+});
+</script>
 
 </body>
 </html>
